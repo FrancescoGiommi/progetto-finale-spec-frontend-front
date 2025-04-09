@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 /* Pagine */
-import VideogamesListPage from "./pages/videogamesListPage";
+import GamesListPage from "./pages/gamesListPage";
 
 /* Contesto Globale */
 import { GamesProvider } from "./globalContext/GamesContext";
@@ -22,7 +22,7 @@ function App() {
           <div className="container">
             <Routes>
               {/* Lista VideoGames */}
-              <Route element={<VideogamesListPage />} path="/" />
+              <Route element={<GamesListPage />} path="/" />
             </Routes>
           </div>
         </BrowserRouter>
