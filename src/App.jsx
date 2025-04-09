@@ -1,5 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+/* Componenti */
+import Navbar from "./components/Navbar";
+
+/* Pagine */
 import VideogamesListPage from "./pages/videogamesListPage";
 
 import { useState } from "react";
@@ -10,10 +14,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          {/* Lista VideoGames */}
-          <Route element={<VideogamesListPage />} path="/" />
-        </Routes>
+        <Navbar />
+        <div className="container">
+          <Routes>
+            {/* Lista VideoGames */}
+            <Route element={<VideogamesListPage />} path="/" />
+          </Routes>
+        </div>
       </BrowserRouter>
     </>
   );

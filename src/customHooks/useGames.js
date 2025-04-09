@@ -1,0 +1,3 @@
+export defult function useGames() {
+    
+}
