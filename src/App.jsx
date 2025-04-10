@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 
 /* Pagine */
 import GamesListPage from "./pages/gamesListPage";
+import GamesDetailsPage from "./pages/gamesDetailsPage";
 
 /* Contesto Globale */
 import { GamesProvider } from "./globalContext/GamesContext";
@@ -23,6 +24,7 @@ function App() {
             <Routes>
               {/* Lista VideoGames */}
               <Route element={<GamesListPage />} path="/" />
+              <Route element={<GamesDetailsPage />} path="/gamesDetails/:id" />
             </Routes>
           </div>
         </BrowserRouter>
