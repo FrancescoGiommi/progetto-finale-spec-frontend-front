@@ -11,36 +11,100 @@ export default function GamesListPage() {
   // Uso il contesto per ottenere la lista dei giochi
   const { gamesList } = consumerGames();
 
+  // Stato per la barra di ricerca
+  const [searchGame, setSearchGame] = useState("");
+
+  // Stato per la categoria
+  const [category, setCategory] = useState("");
+
+  // Stato per mostrare/nascondere la barra di ricerca
+  const [showSearchMenu, setShowSearchMenu] = useState(false);
+
+  // Funzione per filtrare per titolo
+  const filterByTitle = () => {
+    return gamesList.filter((game) =>
+      game.title.toLowerCase().includes(searchGame.toLowerCase())
+    );
+  };
+
+  // Funzione per filtrare per categoria
+  const filterByCategory = () => {
+    return gamesList.filter(
+      (game) => game.category.toLowerCase() === category.toLowerCase()
+    );
+  };
+
+  // Variabile per filtrare i giochi in base alla ricerca
+  let gamesFilterByTitleOrCategory = gamesList;
+
+  // Se è stato cercato un titolo, filtra per titolo
+  if (searchGame.trim() !== "") {
+    gamesFilterByTitleOrCategory = filterByTitle();
+    // Se è stata selezionata una categoria, filtra per categoria
+  } else if (category.trim() !== "") {
+    gamesFilterByTitleOrCategory = filterByCategory();
+  }
+
   return (
     <>
       <h1>Lista videogiochi</h1>
+      {/* Bottone per mostrare/nascondere la barra di ricerca */}
+      <button onClick={() => setShowSearchMenu(!showSearchMenu)}>
+        {showSearchMenu ? "Nascondi ricerca" : "Cerca un gioco"}
+      </button>
+      {showSearchMenu && (
+        <div className="search-bar">
+          {/* Barra di ricerca per titolo */}
+          <input
+            type="text"
+            value={searchGame}
+            onChange={(e) => setSearchGame(e.target.value)}
+            placeholder="Cerca un gioco..."
+          />
+          {/* Filtra gioco per categoria */}
+          <h2>Filtra per categoria</h2>
+          <div>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">Tutte le categorie</option>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Thriller">Thriller</option>
+              <option value="RPG">RPG</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Horror">Horror</option>
+              <option value="Action-Adventure">Action-Adventure</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Fighting">Fighting</option>
+              <option value="Hack and Slash">Hack and Slash</option>
+              <option value="Soulslike">Soulslike</option>
+              <option value="Indie RPG">Indie RPG</option>
+            </select>
+          </div>
+        </div>
+      )}
       <div>
         <div className="games-list">
-          {gamesList.length === 0 && <p>Caricamento in corso...</p>}
-          {/* Mappo la lista dei giochi e li stampo in delle card */}
-          {gamesList.map((game) => (
-            <Link
-              className="link"
-              to={`/gamesDetails/${game.id}`}
-              key={game.id}
-            >
-              {/* Passo le props alla card */}
-              <CardGame
-                game={game}
+          {/* Se la lista dei giochi non è ancora stata caricata*/}
+          {gamesList.length === 0 ? (
+            <p>Caricamento in corso...</p>
+          ) : // Se i giochi sono caricati ma nessuno corrisponde ai filtri
+          gamesFilterByTitleOrCategory.length === 0 ? (
+            <p>Nessun gioco trovato.</p>
+          ) : (
+            // Altrimenti mostro la lista filtrata dei giochi
+            gamesFilterByTitleOrCategory.map((game) => (
+              <Link
+                className="link"
+                to={`/gamesDetails/${game.id}`}
                 key={game.id}
-                title={game.title}
-                category={game.category}
-                image={game.image}
-                platform={game.platform}
-                releaseYear={game.releaseYear}
-                rating={game.rating}
-                price={game.price}
-                multiplayer={game.multiplayer}
-                developer={game.developer}
-                description={game.description}
-              />
-            </Link>
-          ))}
+              >
+                <CardGame game={game} />
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </>
