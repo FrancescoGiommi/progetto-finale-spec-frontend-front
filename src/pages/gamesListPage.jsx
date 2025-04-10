@@ -47,11 +47,13 @@ export default function GamesListPage() {
 
   return (
     <>
-      <h1>Lista videogiochi</h1>
-      {/* Bottone per mostrare/nascondere la barra di ricerca */}
-      <button onClick={() => setShowSearchMenu(!showSearchMenu)}>
-        {showSearchMenu ? "Nascondi ricerca" : "Cerca un gioco"}
-      </button>
+      <div className="flex-button-container">
+        <h1>Lista videogiochi</h1>
+        {/* Bottone per mostrare/nascondere la barra di ricerca */}
+        <button onClick={() => setShowSearchMenu(!showSearchMenu)}>
+          {showSearchMenu ? "Nascondi ricerca" : "Cerca un gioco"}
+        </button>
+      </div>
       {showSearchMenu && (
         <div className="search-bar">
           {/* Barra di ricerca per titolo */}
@@ -64,6 +66,7 @@ export default function GamesListPage() {
           {/* Filtra gioco per categoria */}
           <h2>Filtra per categoria</h2>
           <div>
+            {/* Select delle categorie */}
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}

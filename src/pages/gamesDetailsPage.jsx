@@ -7,9 +7,11 @@ export default function GamesDetailsPage() {
   const id = useParams().id;
   const { gamesList } = consumerGames();
 
+  // Uso il metodo find per trovare il gioco con l'id corrispondente
   const gameDetails = gamesList.find((game) => game.id === parseInt(id));
   console.log(gameDetails);
 
+  // Se non ci sono dettagli del gioco mostro un messaggio di caricamento
   if (!gameDetails) {
     return <p>Caricamento in corso...</p>;
   }
@@ -17,61 +19,65 @@ export default function GamesDetailsPage() {
   return (
     <>
       <h1>Dettagli gioco</h1>
-      <div>
-        <div key={id} className="game-details">
-          <h2>{gameDetails.title}</h2>
-          <div className="game-details-container">
-            <div>
-              {/* Immagine del gioco */}
-              <img className="image" src={gameDetails.image} alt="image" />
-            </div>
-            <div className="game-details-info">
-              <div>
-                {/* Categoria */}
-                <p>Categoria</p>
+      <section className="game-details">
+        <div className="game-details-container">
+          {/* Immagine del gioco */}
+          <img
+            className="game-image"
+            src={gameDetails.image}
+            alt={gameDetails.title}
+          />
+
+          <div className="game-details-info">
+            <h2 className="details-title">{gameDetails.title}</h2>
+
+            <div className="details-row">
+              <div className="details-item">
+                <h3>Categoria</h3>
                 <p>{gameDetails.category}</p>
               </div>
-              <div>
-                {/* Piattaforma */}
-                <p>Piattaforma </p>
+              <div className="details-item">
+                <h3>Piattaforma</h3>
                 <p>{gameDetails.platform}</p>
               </div>
-              <div>
-                {/* Anno di rilascio */}
-                <p>Anno di rilascio</p>
+            </div>
+
+            <div className="details-row">
+              <div className="details-item">
+                <h3>Anno di rilascio</h3>
                 <p>{gameDetails.releaseYear}</p>
               </div>
-              <div>
-                {/* Voto */}
-                <p>Voto </p>
+              <div className="details-item">
+                <h3>Voto</h3>
                 <p>{gameDetails.rating}</p>
               </div>
-              <div>
-                {/* Prezzo */}
-                <p>Prezzo </p>
-                {`${gameDetails.price} €`}
+            </div>
+
+            <div className="details-row">
+              <div className="details-item">
+                <h3>Prezzo</h3>
+                <p>{`${gameDetails.price} €`}</p>
               </div>
-              <div>
-                {/* Tipologia */}
-                <p>Tipologia</p>
+              <div className="details-item">
+                <h3>Tipologia</h3>
                 <p>
                   {gameDetails.multiplayer ? "Multiplayer" : "Single player"}
                 </p>
               </div>
-              <div>
-                {/* Sviluppatore */}
-                <p>Sviluppatore </p>
-                <p>{gameDetails.developer}</p>
-              </div>
-              <div>
-                {/* Descrizione */}
-                <p>Descrizione </p>
-                <p>{gameDetails.description}</p>
-              </div>
+            </div>
+
+            <div className="details-full">
+              <h3>Sviluppatore</h3>
+              <p>{gameDetails.developer}</p>
+            </div>
+
+            <div className="details-full">
+              <h3>Descrizione</h3>
+              <p>{gameDetails.description}</p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
