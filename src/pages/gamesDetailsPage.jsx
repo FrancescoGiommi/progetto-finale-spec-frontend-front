@@ -24,7 +24,7 @@ export default function GamesDetailsPage() {
       <h1>Dettagli gioco</h1>
       <section className="game-details">
         <div className="game-details-container">
-          {/* Immagine del gioco */}
+          {/* Immagine */}
           <img
             className="game-image"
             src={gameDetails.image}
@@ -32,14 +32,17 @@ export default function GamesDetailsPage() {
           />
 
           <div className="game-details-info">
+            {/* Titolo */}
             <h2 className="details-title">{gameDetails.title}</h2>
 
             <div className="details-row">
               <div className="details-item">
+                {/* Categoria */}
                 <h3>Categoria</h3>
                 <p>{gameDetails.category}</p>
               </div>
               <div className="details-item">
+                {/* Piattaforma */}
                 <h3>Piattaforma</h3>
                 <p>{gameDetails.platform}</p>
               </div>
@@ -47,10 +50,12 @@ export default function GamesDetailsPage() {
 
             <div className="details-row">
               <div className="details-item">
+                {/* Anno di rilascio */}
                 <h3>Anno di rilascio</h3>
                 <p>{gameDetails.releaseYear}</p>
               </div>
               <div className="details-item">
+                {/* Voto */}
                 <h3>Voto</h3>
                 <p>{gameDetails.rating}</p>
               </div>
@@ -58,10 +63,12 @@ export default function GamesDetailsPage() {
 
             <div className="details-row">
               <div className="details-item">
+                {/* Prezzo */}
                 <h3>Prezzo</h3>
                 <p>{`${gameDetails.price} €`}</p>
               </div>
               <div className="details-item">
+                {/* Tipologia */}
                 <h3>Tipologia</h3>
                 <p>
                   {gameDetails.multiplayer ? "Multiplayer" : "Single player"}
@@ -70,11 +77,13 @@ export default function GamesDetailsPage() {
             </div>
 
             <div className="details-full">
+              {/* Sviluppatore */}
               <h3>Sviluppatore</h3>
               <p>{gameDetails.developer}</p>
             </div>
 
             <div className="details-full">
+              {/* Descrizione */}
               <h3>Descrizione</h3>
               <p>{gameDetails.description}</p>
             </div>
