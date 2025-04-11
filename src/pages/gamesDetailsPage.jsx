@@ -5,6 +5,9 @@ import { consumerGames } from "../globalContext/GamesContext";
 export default function GamesDetailsPage() {
   // Uso useParams per ottenere l'id del gioco dalla URL
   const id = useParams().id;
+
+  //! Context
+  // Uso il contesto per ottenere la lista dei giochi
   const { gamesList } = consumerGames();
 
   // Uso il metodo find per trovare il gioco con l'id corrispondente
