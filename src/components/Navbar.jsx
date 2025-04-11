@@ -11,7 +11,7 @@ export default function Navbar() {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/compare">Confronta</NavLink>
+          <NavLink to="/comparator">Confronta</NavLink>
         </li>
         <li>
           <NavLink to="/favorites">Preferiti</NavLink>

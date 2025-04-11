@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 /* Pagine */
 import GamesListPage from "./pages/gamesListPage";
 import GamesDetailsPage from "./pages/gamesDetailsPage";
+import GamesComparatorPage from "./pages/gamesComparatorPage";
 
 /* Contesto Globale */
 import { GamesProvider } from "./globalContext/GamesContext";
@@ -25,6 +26,7 @@ function App() {
               {/* Lista VideoGames */}
               <Route element={<GamesListPage />} path="/" />
               <Route element={<GamesDetailsPage />} path="/gamesDetails/:id" />
+              <Route element={<GamesComparatorPage />} path="/comparator" />
             </Routes>
           </div>
         </BrowserRouter>
