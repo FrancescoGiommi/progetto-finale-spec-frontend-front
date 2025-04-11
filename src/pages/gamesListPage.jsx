@@ -8,9 +8,11 @@ import { consumerGames } from "../globalContext/GamesContext";
 import CardGame from "../components/cardGame";
 
 export default function GamesListPage() {
+  //! Context
   // Uso il contesto per ottenere la lista dei giochi
   const { gamesList } = consumerGames();
 
+  //! Stati
   // Stato per la barra di ricerca
   const [searchGame, setSearchGame] = useState("");
 
@@ -20,30 +22,36 @@ export default function GamesListPage() {
   // Stato per mostrare/nascondere la barra di ricerca
   const [showSearchMenu, setShowSearchMenu] = useState(false);
 
-  // Funzione per filtrare per titolo
-  const filterByTitle = () => {
-    return gamesList.filter((game) =>
-      game.title.toLowerCase().includes(searchGame.toLowerCase())
-    );
-  };
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortByTitleOrCategory, setSortByTitleOrCategory] = useState("title");
 
-  // Funzione per filtrare per categoria
-  const filterByCategory = () => {
-    return gamesList.filter(
-      (game) => game.category.toLowerCase() === category.toLowerCase()
-    );
+  //! Funzioni
+  // Funzione per filtrare i giochi in base a titolo, categoria e ordine alfabetico
+  const sortGames = () => {
+    // Prima filtro in base a titolo e categoria
+    const filteredGamesByTitleOrCategory = gamesList.filter((game) => {
+      const filterByTitle = game.title
+        .toLowerCase()
+        .includes(searchGame.toLowerCase());
+      const filterByCategory =
+        category === "" ||
+        game.category.toLowerCase() === category.toLowerCase();
+      return filterByTitle && filterByCategory;
+    });
+
+    // Poi ordino il risultato in ordine alfabetico
+    return filteredGamesByTitleOrCategory.sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a[sortByTitleOrCategory].localeCompare(b[sortByTitleOrCategory]);
+      } else if (sortOrder === "desc") {
+        return b[sortByTitleOrCategory].localeCompare(a[sortByTitleOrCategory]);
+      }
+      return 0;
+    });
   };
 
   // Variabile per filtrare i giochi in base alla ricerca
-  let gamesFilterByTitleOrCategory = gamesList;
-
-  // Se è stato cercato un titolo, filtra per titolo
-  if (searchGame.trim() !== "") {
-    gamesFilterByTitleOrCategory = filterByTitle();
-    // Se è stata selezionata una categoria, filtra per categoria
-  } else if (category.trim() !== "") {
-    gamesFilterByTitleOrCategory = filterByCategory();
-  }
+  let gamesFilterByTitleOrCategory = sortGames();
 
   return (
     <>
@@ -89,15 +97,36 @@ export default function GamesListPage() {
         </div>
       )}
       <div>
+        {/* Bottone per ordinare i giochi in ordine alfabetico */}
+        <button
+          onClick={() =>
+            setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
+          }
+        >
+          Ordine: {sortOrder === "asc" ? "A → Z" : "Z → A"}
+        </button>
+
+        {/* Bottone per ordinare i giochi per titolo o categoria */}
+        <button
+          onClick={() =>
+            setSortByTitleOrCategory((prev) =>
+              prev === "title" ? "category" : "title"
+            )
+          }
+        >
+          Ordina per:{" "}
+          {sortByTitleOrCategory === "title" ? "Titolo" : "Categoria"}
+        </button>
+
         <div className="games-list">
-          {/* Se la lista dei giochi non è ancora stata caricata*/}
+          {/* Se la lista dei giochi non è ancora stata caricata */}
           {gamesList.length === 0 ? (
             <p>Caricamento in corso...</p>
-          ) : // Se i giochi sono caricati ma nessuno corrisponde ai filtri
+          ) : // Se i giochi sono stati caricati ma nessuno corrisponde ai filtri
           gamesFilterByTitleOrCategory.length === 0 ? (
             <p>Nessun gioco trovato.</p>
           ) : (
-            // Altrimenti mostro la lista filtrata dei giochi
+            // Altrimenti mostro la lista dei giochi filtrati
             gamesFilterByTitleOrCategory.map((game) => (
               <Link
                 className="link"
