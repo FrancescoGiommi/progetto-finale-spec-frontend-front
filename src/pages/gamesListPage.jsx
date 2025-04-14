@@ -10,7 +10,7 @@ import CardGame from "../components/cardGame";
 export default function GamesListPage() {
   //! Context
   // Uso il contesto per ottenere la lista dei giochi
-  const { gamesList } = consumerGames();
+  const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
 
   //! Stati
   // Stato per la barra di ricerca
@@ -133,7 +133,11 @@ export default function GamesListPage() {
                 to={`/gamesDetails/${game.id}`}
                 key={game.id}
               >
-                <CardGame game={game} />
+                <CardGame
+                  game={game}
+                  addToFavorites={addToFavorites}
+                  isFavorite={favoritesGamesList.includes(game.id)}
+                />
               </Link>
             ))
           )}

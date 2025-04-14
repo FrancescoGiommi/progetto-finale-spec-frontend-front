@@ -10,7 +10,7 @@ import CardGame from "../components/cardGame";
 export default function GamesComparatorPage() {
   //! Context
   // Uso il contesto per ottenere la lista dei giochi
-  const { gamesList } = consumerGames();
+  const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
 
   //! Stati
   // Contiene gli ID dei giochi selezionati
@@ -100,7 +100,12 @@ export default function GamesComparatorPage() {
             }`}
             onClick={() => handleGameSelect(game.id)}
           >
-            <CardGame game={game} />
+            <CardGame
+              game={game}
+              readonly={true}
+              addToFavorites={addToFavorites}
+              isFavorite={favoritesGamesList.includes(game.id)}
+            />
           </div>
         ))}
       </div>

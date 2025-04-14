@@ -65,6 +65,7 @@ body {
 }
 
 .game-card {
+  position: relative;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -261,6 +262,50 @@ button {
   margin-right: 25px;
 }
 
+/* Bottone per aggiungere i preferiti */
+.favorite-button {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background-color: #0f3460;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease 0.1s, visibility 0.2s ease 0.1s;
+  font-family: "Orbitron", sans-serif;
+  display: none;
+}
+
+.favorite-button:hover {
+  background-color: #0f3460;
+  transform: scale(1.03);
+  color: red;
+}
+
+.game-card:hover .favorite-button,
+.favorite-button.active {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+/* Colora il cuore di rosso se attivo */
+.favorite-button.active i.fa-heart,
+.favorite-button i.fa-heart.active {
+  color: red;
+}
+
+.game-card:hover .favorite-button {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
 .flex-button-container {
   display: flex;
   justify-content: space-between;
@@ -313,4 +358,23 @@ button:hover {
 .comparator-card p {
   margin-bottom: 0.5rem;
   line-height: 1.4;
+}
+
+.readonly-favorite {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #0f3460;
+  color: red;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  z-index: 10;
+  opacity: 1;
+  display: block;
+}
+
+.readonly-favorite i {
+  color: red;
+  font-size: 20px;
 }

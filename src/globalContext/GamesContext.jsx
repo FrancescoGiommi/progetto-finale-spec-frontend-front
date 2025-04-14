@@ -9,10 +9,24 @@ const GamesContext = createContext();
 
 // Creo il provider per condividere il contesto
 export const GamesProvider = ({ children }) => {
-  const { gamesList, gamesFetch } = useGames();
+  const {
+    gamesList,
+    gamesFetch,
+    addToFavorites,
+    favoritesGamesList,
+    removeFromFavorites,
+  } = useGames();
 
   return (
-    <GamesContext.Provider value={{ gamesList, gamesFetch }}>
+    <GamesContext.Provider
+      value={{
+        gamesList,
+        gamesFetch,
+        addToFavorites,
+        favoritesGamesList,
+        removeFromFavorites,
+      }}
+    >
       {children}
     </GamesContext.Provider>
   );
