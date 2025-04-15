@@ -389,6 +389,13 @@ button:hover {
   position: relative;
 }
 
+.games-favorites .games-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 0px));
+  place-items: center;
+  gap: 1.5rem;
+}
+
 .remove-favorite {
   background-color: rgb(121, 28, 28);
   position: absolute;
