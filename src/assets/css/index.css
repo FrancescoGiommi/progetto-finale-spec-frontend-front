@@ -60,13 +60,12 @@ body {
 .games-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem;
+  gap: 2rem;
 }
 
 .game-card {
   position: relative;
-  background-color: #ffffff;
+  background-color: #181a1b;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -76,6 +75,7 @@ body {
   align-items: center;
   text-align: center;
   height: 100%;
+  width: 250px;
   min-height: 370px;
 }
 
@@ -94,7 +94,7 @@ body {
 
 .game-card h2 {
   font-size: 1.2rem;
-  color: #333;
+  color: white;
   margin-bottom: 0.5rem;
 }
 
@@ -163,7 +163,7 @@ body {
 }
 
 .details-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #ffd700;
   margin-bottom: 1rem;
 }
@@ -248,7 +248,7 @@ body {
 /* Bottone per aprire/chiudere il menu */
 button {
   background-color: #ffd700;
-  color: #1e1e2f;
+  color: white;
   padding: 0.75rem 1.5rem;
   border: none;
   font-weight: bold;
@@ -256,7 +256,7 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   margin-top: 22px;
   font-family: "Orbitron", sans-serif;
   margin-right: 25px;
@@ -282,10 +282,32 @@ button {
   display: none;
 }
 
+.remove-favorite {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  margin-top: 22px;
+  font-family: "Orbitron", sans-serif;
+}
+
 .favorite-button:hover {
   background-color: #0f3460;
   transform: scale(1.03);
   color: red;
+}
+
+/* Nascondi totalmente il cuore con display: none */
+.favorite-button.hide-favorite {
+  display: none;
 }
 
 .game-card:hover .favorite-button,
@@ -339,8 +361,8 @@ button:hover {
 .comparator-card {
   display: flex;
   flex: 1 1 300px;
-  width: 500px;
-  background-color: #f9f9f9;
+  max-width: 500px;
+  background-color: #181a1b;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -357,24 +379,22 @@ button:hover {
 
 .comparator-card p {
   margin-bottom: 0.5rem;
-  line-height: 1.4;
 }
 
-.readonly-favorite {
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  background-color: #0f3460;
-  color: red;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  z-index: 10;
-  opacity: 1;
-  display: block;
+.favorites-container {
+  position: relative;
 }
 
-.readonly-favorite i {
-  color: red;
+.remove-favorite {
+  background-color: rgb(121, 28, 28);
   font-size: 20px;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+}
+
+.remove-favorite:hover {
+  background-color: rgb(255, 0, 0);
+  transform: scale(1.03);
+  color: white;
 }

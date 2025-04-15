@@ -137,6 +137,7 @@ export default function GamesListPage() {
                   game={game}
                   addToFavorites={addToFavorites}
                   isFavorite={favoritesGamesList.includes(game.id)}
+                  hideFavorite={true}
                 />
               </Link>
             ))

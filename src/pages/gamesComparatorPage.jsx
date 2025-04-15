@@ -102,9 +102,9 @@ export default function GamesComparatorPage() {
           >
             <CardGame
               game={game}
-              readonly={true}
               addToFavorites={addToFavorites}
               isFavorite={favoritesGamesList.includes(game.id)}
+              hideFavorite={true}
             />
           </div>
         ))}
