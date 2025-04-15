@@ -34,7 +34,9 @@ export default function GamesComparatorPage() {
   return (
     <>
       <h1>Confronta i giochi</h1>
-      <p>Seleziona fino a 2 giochi per confrontarli</p>
+      <p className="selected-games">
+        Seleziona fino a 2 giochi per confrontarli
+      </p>
       <section className="games-comparator">
         <div className="comparator-container">
           {/* Se ci sono giochi selezionati ne mostro i dettagli */}

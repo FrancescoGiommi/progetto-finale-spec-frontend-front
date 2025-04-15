@@ -247,7 +247,7 @@ body {
 
 /* Bottone per aprire/chiudere il menu */
 button {
-  background-color: #ffd700;
+  background-color: #998100;
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -358,6 +358,10 @@ button:hover {
   flex-wrap: wrap;
 }
 
+.selected-games {
+  margin-bottom: 2rem;
+}
+
 .comparator-card {
   display: flex;
   flex: 1 1 300px;
@@ -387,10 +391,9 @@ button:hover {
 
 .remove-favorite {
   background-color: rgb(121, 28, 28);
-  font-size: 20px;
   position: absolute;
-  top: -45px;
-  right: -45px;
+  top: -40px;
+  right: -40px;
 }
 
 .remove-favorite:hover {
