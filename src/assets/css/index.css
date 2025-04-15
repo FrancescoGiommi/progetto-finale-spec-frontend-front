@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  width: 1300px;
+  width: 1500px;
   margin: 0 auto;
 }
 
@@ -17,6 +17,7 @@ body {
 /* link css */
 .link {
   text-decoration: none;
+  width: 250px;
 }
 
 /* Navbar css */
@@ -58,11 +59,19 @@ body {
 
 /* Lista dei giochi css */
 .games-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
+/* .games-list .game-card {
+  flex: 1 1 250px;
+  max-width: 250px;
+  margin: 0 auto;
+} */
 .game-card {
   position: relative;
   background-color: #181a1b;
@@ -77,6 +86,7 @@ body {
   height: 100%;
   width: 250px;
   min-height: 370px;
+  cursor: pointer;
 }
 
 .game-card:hover {
@@ -297,6 +307,17 @@ button {
   margin-bottom: 1rem;
   margin-top: 22px;
   font-family: "Orbitron", sans-serif;
+
+  background-color: rgb(121, 28, 28);
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+.remove-favorite:hover {
+  background-color: rgb(255, 0, 0);
+  transform: scale(1.03);
+  color: white;
 }
 
 .favorite-button:hover {
@@ -306,9 +327,9 @@ button {
 }
 
 /* Nascondi totalmente il cuore con display: none */
-.favorite-button.hide-favorite {
+/* .favorite-button.hide-favorite {
   display: none;
-}
+} */
 
 .game-card:hover .favorite-button,
 .favorite-button.active {
@@ -336,6 +357,7 @@ button {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
 button:hover {
   background-color: #f2c300;
   transform: scale(1.03);
@@ -347,6 +369,7 @@ button:hover {
   border: 2px solid #ffd700;
   box-shadow: 0 0 10px #ffd700;
   border-radius: 8px;
+  width: 250px;
 }
 
 .comparator-flex {
@@ -394,17 +417,4 @@ button:hover {
   grid-template-columns: repeat(auto-fit, minmax(250px, 0px));
   place-items: center;
   gap: 1.5rem;
-}
-
-.remove-favorite {
-  background-color: rgb(121, 28, 28);
-  position: absolute;
-  top: -40px;
-  right: -40px;
-}
-
-.remove-favorite:hover {
-  background-color: rgb(255, 0, 0);
-  transform: scale(1.03);
-  color: white;
 }

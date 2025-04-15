@@ -33,6 +33,7 @@ export default function GamesListPage() {
       const filterByTitle = game.title
         .toLowerCase()
         .includes(searchGame.toLowerCase());
+
       const filterByCategory =
         category === "" ||
         game.category.toLowerCase() === category.toLowerCase();

@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link className="navbar-logo" to="/">
-        GameCompare 🎮
+        GamesCompare 🎮
       </Link>
       <ul className="navbar-links">
         <li>
