@@ -57,6 +57,15 @@ body {
   color: #00f0ff;
 }
 
+/* Bottone di ricerca css */
+.search-button {
+  margin-right: 103px;
+}
+
+.sort-button {
+  margin-left: 95px;
+}
+
 /* Lista dei giochi css */
 .games-list {
   display: flex;
@@ -90,7 +99,7 @@ body {
 }
 
 .game-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -216,6 +225,8 @@ body {
   margin-top: 1rem;
   color: #fff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 1255px;
+  margin-left: 95px;
 }
 
 /* Input di ricerca */
@@ -292,6 +303,13 @@ button {
   display: none;
 }
 
+.favorite-button:hover {
+  background-color: #0f3460;
+  transform: scale(1.03);
+  color: red;
+}
+
+/* Bottone per rimuovere i preferiti */
 .remove-favorite {
   padding: 0.75rem 1rem;
   border: none;
@@ -318,12 +336,6 @@ button {
   background-color: rgb(255, 0, 0);
   transform: scale(1.03);
   color: white;
-}
-
-.favorite-button:hover {
-  background-color: #0f3460;
-  transform: scale(1.03);
-  color: red;
 }
 
 /* Nascondi totalmente il cuore con display: none */

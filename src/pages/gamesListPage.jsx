@@ -59,7 +59,10 @@ export default function GamesListPage() {
       <div className="flex-button-container">
         <h1>Lista videogiochi</h1>
         {/* Bottone per mostrare/nascondere la barra di ricerca */}
-        <button onClick={() => setShowSearchMenu(!showSearchMenu)}>
+        <button
+          className="search-button"
+          onClick={() => setShowSearchMenu(!showSearchMenu)}
+        >
           {showSearchMenu ? "Nascondi ricerca" : "Cerca un gioco"}
         </button>
       </div>
@@ -100,6 +103,7 @@ export default function GamesListPage() {
       <div>
         {/* Bottone per ordinare i giochi in ordine alfabetico */}
         <button
+          className="sort-button"
           onClick={() =>
             setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
           }
