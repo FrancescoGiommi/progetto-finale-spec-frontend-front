@@ -103,7 +103,10 @@ export default function GamesComparatorPage() {
             onClick={() => handleGameSelect(game.id)}
           >
             <CardGame
-              game={game}
+              id={game.id}
+              title={game.title}
+              image={game.image}
+              category={game.category}
               addToFavorites={addToFavorites}
               isFavorite={favoritesGamesList.includes(game.id)}
             />

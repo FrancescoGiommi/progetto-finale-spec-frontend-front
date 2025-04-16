@@ -39,13 +39,13 @@ export default function GamesListPage() {
     );
   };
 
-  // Funzione per filtrare i giochi in base al titolo o alla categoria
+  // Funzione per filtrare i giochi in base al titolo e alla categoria
   const filterByTitleOrCategory = gamesList.filter((game) => {
     return filterByTitle(game) && filterByCategory(game);
   });
 
+  // Funzione per ordinare i giochi in ordine crescente o decrescente
   const sortGames = () => {
-    // Poi ordino il risultato in ordine alfabetico
     return filterByTitleOrCategory.sort((a, b) => {
       if (sortOrder === "asc") {
         return a[sortByTitleOrCategory].localeCompare(b[sortByTitleOrCategory]);
@@ -130,19 +130,26 @@ export default function GamesListPage() {
 
         <div className="games-list">
           {/* Giochi filtrati */}
-          {gamesFiltered.map((game) => (
-            <Link
-              className="link"
-              to={`/gamesDetails/${game.id}`}
-              key={game.id}
-            >
-              <CardGame
-                game={game}
-                addToFavorites={addToFavorites}
-                isFavorite={favoritesGamesList.includes(game.id)}
-              />
-            </Link>
-          ))}
+          {gamesFiltered.length === 0 ? (
+            <p>Nessun gioco trovato</p>
+          ) : (
+            gamesFiltered.map((game) => (
+              <Link
+                className="link"
+                to={`/gamesDetails/${game.id}`}
+                key={game.id}
+              >
+                <CardGame
+                  id={game.id}
+                  title={game.title}
+                  image={game.image}
+                  category={game.category}
+                  addToFavorites={addToFavorites}
+                  isFavorite={favoritesGamesList.includes(game.id)}
+                />
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </>

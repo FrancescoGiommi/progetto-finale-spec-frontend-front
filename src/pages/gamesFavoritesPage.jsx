@@ -23,7 +23,7 @@ export default function GamesFavoritesPage() {
                   className="remove-favorite"
                   onClick={() => removeFromFavorites(game.id)}
                 >
-                  <i class="fa-solid fa-trash"></i>
+                  <i className="fa-solid fa-trash"></i>
                 </button>
               </div>
             ))

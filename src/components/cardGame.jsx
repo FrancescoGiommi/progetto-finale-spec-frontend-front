@@ -1,29 +1,33 @@
-import React from "react";
-
-const CardGame = ({ game, isFavorite, addToFavorites }) => {
+export default function ({
+  id,
+  title,
+  image,
+  category,
+  isFavorite,
+  addToFavorites,
+}) {
   return (
-    <div key={game.id} className="game-card">
+    <div key={id} className="game-card">
       {/* Immagine */}
-      <img src={game.image} alt={game.name} />
+      <img src={image} alt={title} />
 
       {/* Bottone per aggiungere il gioco ai preferiti */}
+
       <button
         className={`favorite-button  ${isFavorite ? "active" : ""}`}
         onClick={(e) => {
           e.stopPropagation();
           e.preventDefault();
-          addToFavorites(game.id);
+          addToFavorites(id);
         }}
       >
         <i className={`fa-solid fa-heart ${isFavorite ? "active" : ""}`}></i>
       </button>
       {/* Titolo */}
-      <h2>{game.title}</h2>
+      <h2>{title}</h2>
 
       {/* Categoria */}
-      <p>{game.category}</p>
+      <p>{category}</p>
     </div>
   );
-};
-
-export default React.memo(CardGame);
+}
