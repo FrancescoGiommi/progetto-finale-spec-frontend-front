@@ -1,4 +1,4 @@
-export default function ({
+export default function CardGame({
   id,
   title,
   image,
