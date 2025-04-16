@@ -37,6 +37,7 @@ export default function GamesListPage() {
       const filterByCategory =
         category === "" ||
         game.category.toLowerCase() === category.toLowerCase();
+
       return filterByTitle && filterByCategory;
     });
 
@@ -52,7 +53,7 @@ export default function GamesListPage() {
   };
 
   // Variabile per filtrare i giochi in base alla ricerca
-  let gamesFilterByTitleOrCategory = sortGames();
+  let gamesFiltered = sortGames();
 
   return (
     <>
@@ -124,29 +125,20 @@ export default function GamesListPage() {
         </button>
 
         <div className="games-list">
-          {/* Se la lista dei giochi non è ancora stata caricata */}
-          {gamesList.length === 0 ? (
-            <p>Caricamento in corso...</p>
-          ) : // Se i giochi sono stati caricati ma nessuno corrisponde ai filtri
-          gamesFilterByTitleOrCategory.length === 0 ? (
-            <p>Nessun gioco trovato.</p>
-          ) : (
-            // Altrimenti mostro la lista dei giochi filtrati
-            gamesFilterByTitleOrCategory.map((game) => (
-              <Link
-                className="link"
-                to={`/gamesDetails/${game.id}`}
-                key={game.id}
-              >
-                <CardGame
-                  game={game}
-                  addToFavorites={addToFavorites}
-                  isFavorite={favoritesGamesList.includes(game.id)}
-                  hideFavorite={true}
-                />
-              </Link>
-            ))
-          )}
+          {/* Giochi filtrati */}
+          {gamesFiltered.map((game) => (
+            <Link
+              className="link"
+              to={`/gamesDetails/${game.id}`}
+              key={game.id}
+            >
+              <CardGame
+                game={game}
+                addToFavorites={addToFavorites}
+                isFavorite={favoritesGamesList.includes(game.id)}
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </>

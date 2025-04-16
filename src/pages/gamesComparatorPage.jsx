@@ -97,7 +97,7 @@ export default function GamesComparatorPage() {
         {gamesList.map((game) => (
           <div
             key={game.id}
-            className={`card-clickable ${
+            className={`card-selected ${
               selectedGames.includes(game.id) ? "selected" : ""
             }`}
             onClick={() => handleGameSelect(game.id)}
@@ -106,7 +106,6 @@ export default function GamesComparatorPage() {
               game={game}
               addToFavorites={addToFavorites}
               isFavorite={favoritesGamesList.includes(game.id)}
-              hideFavorite={true}
             />
           </div>
         ))}
