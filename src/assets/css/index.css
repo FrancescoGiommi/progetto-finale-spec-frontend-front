@@ -377,9 +377,14 @@ button:hover {
   gap: 2rem;
   padding: 2rem 0;
   flex-wrap: wrap;
+  width: 1300px;
 }
 
 .selected-games {
+  margin-bottom: 2rem;
+}
+
+.p-games-selected {
   margin-bottom: 2rem;
 }
 

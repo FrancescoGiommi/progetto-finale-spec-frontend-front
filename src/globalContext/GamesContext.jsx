@@ -11,7 +11,7 @@ const GamesContext = createContext();
 export const GamesProvider = ({ children }) => {
   const {
     gamesList,
-    gamesFetch,
+
     addToFavorites,
     favoritesGamesList,
     removeFromFavorites,
@@ -21,7 +21,7 @@ export const GamesProvider = ({ children }) => {
     <GamesContext.Provider
       value={{
         gamesList,
-        gamesFetch,
+
         addToFavorites,
         favoritesGamesList,
         removeFromFavorites,

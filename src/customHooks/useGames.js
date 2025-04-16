@@ -56,7 +56,6 @@ export const useGames = () => {
 
   return {
     gamesList,
-    gamesFetch,
     addToFavorites,
     favoritesGamesList,
     removeFromFavorites,

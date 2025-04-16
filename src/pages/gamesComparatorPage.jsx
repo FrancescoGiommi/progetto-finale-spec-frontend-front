@@ -21,7 +21,7 @@ export default function GamesComparatorPage() {
   const handleGameSelect = (id) => {
     if (selectedGames.includes(id)) {
       setSelectedGames(selectedGames.filter((gameId) => gameId !== id));
-    } else if (selectedGames.length < 2) {
+    } else if (selectedGames.length < 4) {
       setSelectedGames([...selectedGames, id]);
     }
   };
@@ -35,7 +35,10 @@ export default function GamesComparatorPage() {
     <>
       <h1>Confronta i giochi</h1>
       <p className="selected-games">
-        Seleziona fino a 2 giochi per confrontarli
+        Seleziona fino a 4 giochi per confrontarli
+      </p>
+      <p className="p-games-selected">
+        Giochi selezionati : {selectedGames.length}
       </p>
       <section className="games-comparator">
         <div className="comparator-container">
