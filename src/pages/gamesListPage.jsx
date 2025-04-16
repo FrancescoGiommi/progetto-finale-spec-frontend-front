@@ -26,23 +26,27 @@ export default function GamesListPage() {
   const [sortByTitleOrCategory, setSortByTitleOrCategory] = useState("title");
 
   //! Funzioni
-  // Funzione per filtrare i giochi in base a titolo, categoria e ordine alfabetico
+
+  // Funzione per filtrare i giochi in base al titolo
+  const filterByTitle = (game) => {
+    return game.title.toLowerCase().includes(searchGame.toLowerCase());
+  };
+
+  // Funzione per filtrare i giochi in base alla categoria
+  const filterByCategory = (game) => {
+    return (
+      category === "" || game.category.toLowerCase() === category.toLowerCase()
+    );
+  };
+
+  // Funzione per filtrare i giochi in base al titolo o alla categoria
+  const filterByTitleOrCategory = gamesList.filter((game) => {
+    return filterByTitle(game) && filterByCategory(game);
+  });
+
   const sortGames = () => {
-    // Prima filtro in base a titolo e categoria
-    const filteredGamesByTitleOrCategory = gamesList.filter((game) => {
-      const filterByTitle = game.title
-        .toLowerCase()
-        .includes(searchGame.toLowerCase());
-
-      const filterByCategory =
-        category === "" ||
-        game.category.toLowerCase() === category.toLowerCase();
-
-      return filterByTitle && filterByCategory;
-    });
-
     // Poi ordino il risultato in ordine alfabetico
-    return filteredGamesByTitleOrCategory.sort((a, b) => {
+    return filterByTitleOrCategory.sort((a, b) => {
       if (sortOrder === "asc") {
         return a[sortByTitleOrCategory].localeCompare(b[sortByTitleOrCategory]);
       } else if (sortOrder === "desc") {
