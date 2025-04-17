@@ -32,7 +32,7 @@ export const GamesProvider = ({ children }) => {
   );
 };
 
-// Creo una funzione per usare il contesto nei componenti
+// Uso il contentesto per usarlo nei componenti
 export const consumerGames = () => {
   const context = useContext(GamesContext);
   return context;

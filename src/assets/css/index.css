@@ -378,14 +378,13 @@ button:hover {
   width: 250px;
 }
 
-.comparator-flex {
+.comparator-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
   padding: 2rem 0;
   flex-wrap: wrap;
-  width: 1300px;
 }
 
 .selected-games {
@@ -428,4 +427,16 @@ button:hover {
   grid-template-columns: repeat(auto-fit, minmax(250px, 0px));
   place-items: center;
   gap: 1.5rem;
+}
+
+/* Footer */
+
+footer {
+  background-color: #1a1a2e;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+  margin-top: 2rem;
 }

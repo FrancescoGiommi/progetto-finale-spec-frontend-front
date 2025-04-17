@@ -28,7 +28,7 @@ export const useGames = () => {
   };
 
   // Funzione per aggiungere un gioco ai preferiti
-  // Salva solo gli ID nei preferiti
+
   const addToFavorites = (gameId) => {
     setFavoritesGamesList((prevFavorites) => {
       const isFavorite = prevFavorites.includes(gameId);

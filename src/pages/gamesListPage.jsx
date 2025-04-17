@@ -130,26 +130,22 @@ export default function GamesListPage() {
 
         <div className="games-list">
           {/* Giochi filtrati */}
-          {gamesFiltered.length === 0 ? (
-            <p>Nessun gioco trovato</p>
-          ) : (
-            gamesFiltered.map((game) => (
-              <Link
-                className="link"
-                to={`/gamesDetails/${game.id}`}
-                key={game.id}
-              >
-                <CardGame
-                  id={game.id}
-                  title={game.title}
-                  image={game.image}
-                  category={game.category}
-                  addToFavorites={addToFavorites}
-                  isFavorite={favoritesGamesList.includes(game.id)}
-                />
-              </Link>
-            ))
-          )}
+          {gamesFiltered.map((game) => (
+            <Link
+              className="link"
+              to={`/gamesDetails/${game.id}`}
+              key={game.id}
+            >
+              <CardGame
+                id={game.id}
+                title={game.title}
+                image={game.image}
+                category={game.category}
+                addToFavorites={addToFavorites}
+                isFavorite={favoritesGamesList.includes(game.id)}
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </>
