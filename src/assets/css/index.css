@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-/* Body css */
+/* Body */
 body {
   background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
   font-family: "Orbitron", sans-serif;
@@ -14,14 +14,13 @@ body {
   box-sizing: border-box;
 }
 
-/* link css */
+/* link */
 .link {
   text-decoration: none;
   width: 250px;
 }
 
-/* Navbar css */
-
+/* Navbar */
 .navbar {
   background-color: #1a1a2e;
   color: #fff;
@@ -57,11 +56,12 @@ body {
   color: #00f0ff;
 }
 
+/* Bottone per ordine asc/desc */
 .sort-button {
   margin-left: 95px;
 }
 
-/* Lista dei giochi css */
+/* Lista dei giochi */
 .games-list {
   display: flex;
   flex-wrap: wrap;
@@ -71,6 +71,7 @@ body {
   justify-content: center;
 }
 
+/* Card dei giochi  */
 .game-card {
   position: relative;
   background-color: #181a1b;
@@ -93,6 +94,7 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Immagine della card */
 .game-card img {
   width: 100%;
   height: 300px;
@@ -101,6 +103,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Titolo della card */
 .game-card h2 {
   font-size: 1.2rem;
   color: white;
@@ -122,7 +125,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Game details css */
+/* Pagina di detaglio del gioco */
 .game-details-container {
   display: flex;
   justify-content: center;
@@ -145,6 +148,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Dettagli del gioco */
 .game-details {
   padding: 2rem;
   background-color: #1e1e2f;
@@ -207,7 +211,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Container del menu di ricerca */
+/* Searchbar e select */
 .search-bar {
   background-color: #1e1e2f;
   padding: 1.5rem;
@@ -256,7 +260,7 @@ body {
   font-family: "Orbitron", sans-serif;
 }
 
-/* Bottone per aprire/chiudere il menu */
+/* Tutti i bottoni */
 button {
   background-color: #998100;
   color: white;
@@ -331,7 +335,7 @@ button {
   color: white;
 }
 
-/* Mostro il bottone al passaggio del mouse sulla card */
+/* Bottone rimuovi dai preferiti in hover sulla card */
 .game-card:hover .remove-favorite {
   opacity: 1;
   pointer-events: auto;
@@ -344,7 +348,7 @@ button {
   display: block;
 }
 
-/* Colora il cuore di rosso se attivo */
+/* Il cuore diventa rosso se attivo */
 .favorite-button.active i.fa-heart,
 .favorite-button i.fa-heart.active {
   color: red;
@@ -430,7 +434,6 @@ button:hover {
 }
 
 /* Footer */
-
 footer {
   background-color: #1a1a2e;
   color: #fff;

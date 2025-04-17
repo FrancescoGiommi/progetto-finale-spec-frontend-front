@@ -1,7 +1,7 @@
 // importo useState
 import { useState } from "react";
 
-// Importo il contesto per i videogiochi
+// Importo il context per i videogiochi
 import { consumerGames } from "../globalContext/GamesContext";
 
 // Importo la card dei giochi
@@ -44,7 +44,6 @@ export default function GamesComparatorPage() {
         {/* Se ci sono giochi selezionati ne mostro i dettagli */}
         {selectedGames.length > 0 && (
           <div className="comparator-container">
-            {/* Mostro i dettagli per ogni gioco */}
             {selectedGamesDetails.map((game) => (
               <div key={game.id} className="comparator-card">
                 <div>
@@ -94,7 +93,7 @@ export default function GamesComparatorPage() {
         )}
       </section>
       <div className="games-list">
-        {/* Mostro la lista dei giochi disponibili */}
+        {/* Lista dei giochi disponibili */}
         {gamesList.map((game) => (
           <div
             key={game.id}

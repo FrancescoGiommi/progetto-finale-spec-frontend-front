@@ -1,3 +1,4 @@
+/* Importo useState e useEffect */
 import { useEffect, useState } from "react";
 
 export const useGames = () => {
@@ -28,7 +29,6 @@ export const useGames = () => {
   };
 
   // Funzione per aggiungere un gioco ai preferiti
-
   const addToFavorites = (gameId) => {
     setFavoritesGamesList((prevFavorites) => {
       const isFavorite = prevFavorites.includes(gameId);

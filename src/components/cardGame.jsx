@@ -12,9 +12,8 @@ export default function CardGame({
       <img src={image} alt={title} />
 
       {/* Bottone per aggiungere il gioco ai preferiti */}
-
       <button
-        className={`favorite-button  ${isFavorite ? "active" : ""}`}
+        className={`favorite-button ${isFavorite ? "active" : ""}`}
         onClick={(e) => {
           e.stopPropagation();
           e.preventDefault();

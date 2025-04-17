@@ -1,7 +1,9 @@
+// Importo useState
 import { useState } from "react";
+// Importo Link
 import { Link } from "react-router-dom";
 
-// Importo il contesto per i videogiochi
+// Importo il context per i videogiochi
 import { consumerGames } from "../globalContext/GamesContext";
 
 // Import la card dei giochi
@@ -9,24 +11,26 @@ import CardGame from "../components/cardGame";
 
 export default function GamesListPage() {
   //! Context
-  // Uso il contesto per ottenere la lista dei giochi
+  // Prendo la lista dei giochi e le funzioni per gestire i preferiti dal context
   const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
 
   //! Stati
-  // Stato per la barra di ricerca
+  // SearchBar per cercare i giochi
   const [searchGame, setSearchGame] = useState("");
 
-  // Stato per la categoria
+  // Select per selezionare la categoria
   const [category, setCategory] = useState("");
 
-  // Stato per mostrare/nascondere la barra di ricerca
+  // Mostro/nascondo la barra di ricerca
   const [showSearchMenu, setShowSearchMenu] = useState(false);
 
+  // Ordinamento alfabetico dei giochi
   const [sortOrder, setSortOrder] = useState("asc");
+
+  // Ordinamento per titolo o categoria
   const [sortByTitleOrCategory, setSortByTitleOrCategory] = useState("title");
 
   //! Funzioni
-
   // Funzione per filtrare i giochi in base al titolo
   const filterByTitle = (game) => {
     return game.title.toLowerCase().includes(searchGame.toLowerCase());
@@ -39,12 +43,12 @@ export default function GamesListPage() {
     );
   };
 
-  // Funzione per filtrare i giochi in base al titolo e alla categoria
+  // Funzione per filtrare i giochi sia per titolo che per categoria
   const filterByTitleOrCategory = gamesList.filter((game) => {
     return filterByTitle(game) && filterByCategory(game);
   });
 
-  // Funzione per ordinare i giochi in ordine crescente o decrescente
+  // Funzione per ordinare i giochi filtrati in ordine alfabetico, in base al titolo o categoria
   const sortGames = () => {
     return filterByTitleOrCategory.sort((a, b) => {
       if (sortOrder === "asc") {
@@ -56,14 +60,15 @@ export default function GamesListPage() {
     });
   };
 
-  // Variabile per filtrare i giochi in base alla ricerca
+  // Lista finale dei giochi da mostrare, dopo filtraggio e ordinamento
   let gamesFiltered = sortGames();
 
   return (
     <>
       <div className="flex-button-container">
         <h1>Lista videogiochi</h1>
-        {/* Bottone per mostrare/nascondere la barra di ricerca */}
+
+        {/* Bottone per mostrare/nascondere la barra di ricerca e la select della categoria */}
         <button
           className="search-button"
           onClick={() => setShowSearchMenu(!showSearchMenu)}
@@ -80,6 +85,7 @@ export default function GamesListPage() {
             onChange={(e) => setSearchGame(e.target.value)}
             placeholder="Cerca un gioco..."
           />
+
           {/* Filtra gioco per categoria */}
           <h2>Filtra per categoria</h2>
           <div>
@@ -106,7 +112,7 @@ export default function GamesListPage() {
         </div>
       )}
       <div>
-        {/* Bottone per ordinare i giochi in ordine alfabetico */}
+        {/* Bottone per cambiare l'ordine alfabetico dei giochi (A → Z o Z → A) */}
         <button
           className="sort-button"
           onClick={() =>
@@ -129,13 +135,14 @@ export default function GamesListPage() {
         </button>
 
         <div className="games-list">
-          {/* Giochi filtrati */}
+          {/* Lista dei giochi filtrati e ordinati */}
           {gamesFiltered.map((game) => (
             <Link
               className="link"
               to={`/gamesDetails/${game.id}`}
               key={game.id}
             >
+              {/* Card del gioco */}
               <CardGame
                 id={game.id}
                 title={game.title}

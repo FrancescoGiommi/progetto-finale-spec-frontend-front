@@ -14,8 +14,6 @@ import GamesFavoritesPage from "./pages/gamesFavoritesPage";
 /* Contesto Globale */
 import { GamesProvider } from "./globalContext/GamesContext";
 
-import "./App.css";
-
 function App() {
   return (
     <>
@@ -27,13 +25,16 @@ function App() {
           <main>
             <div className="container">
               <Routes>
-                {/* Lista VideoGames */}
+                {/* Lista dei giochi */}
                 <Route element={<GamesListPage />} path="/" />
+                {/* Pagina di dettaglio del gioco */}
                 <Route
                   element={<GamesDetailsPage />}
                   path="/gamesDetails/:id"
                 />
+                {/* Pagina per confrontare i giochi */}
                 <Route element={<GamesComparatorPage />} path="/comparator" />
+                {/* Pagina dei preferiti */}
                 <Route element={<GamesFavoritesPage />} path="/favorites" />
               </Routes>
             </div>
