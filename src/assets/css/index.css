@@ -276,7 +276,7 @@ button {
 /* Bottone per aggiungere i preferiti */
 .favorite-button {
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
   position: absolute;
   top: -40px;
   right: -40px;
@@ -288,9 +288,8 @@ button {
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
-  transition: opacity 0.2s ease 0.1s, visibility 0.2s ease 0.1s;
+  transition: opacity 0.3s ease;
   font-family: "Orbitron", sans-serif;
-  display: none;
 }
 
 .favorite-button:hover {
@@ -320,12 +319,22 @@ button {
   position: absolute;
   top: -40px;
   right: -40px;
+
+  /* Nascondi il bottone di default */
+  opacity: 0;
+  pointer-events: none;
 }
 
 .remove-favorite:hover {
   background-color: rgb(255, 0, 0);
   transform: scale(1.03);
   color: white;
+}
+
+/* Mostro il bottone al passaggio del mouse sulla card */
+.game-card:hover .remove-favorite {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .game-card:hover .favorite-button,
@@ -343,8 +352,7 @@ button {
 
 .game-card:hover .favorite-button {
   opacity: 1;
-  visibility: visible;
-  display: block;
+  pointer-events: auto;
 }
 
 .flex-button-container {
