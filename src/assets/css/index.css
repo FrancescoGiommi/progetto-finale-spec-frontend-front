@@ -318,13 +318,10 @@ button {
   margin-bottom: 1rem;
   margin-top: 22px;
   font-family: "Orbitron", sans-serif;
-
   background-color: rgb(121, 28, 28);
   position: absolute;
   top: -40px;
   right: -40px;
-
-  /* Nascondi il bottone di default */
   opacity: 0;
   pointer-events: none;
 }

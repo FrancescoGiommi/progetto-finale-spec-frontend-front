@@ -22,7 +22,6 @@ export const useGames = () => {
         throw new Error("Errore nella risposta del server");
       }
       setGamesList(data);
-      console.log(data);
     } catch (error) {
       console.error("Errore durante il fetch dei giochi:", error.message);
     }
