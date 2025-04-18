@@ -3,7 +3,7 @@ import { consumerGames } from "../globalContext/GamesContext";
 
 export default function GamesFavoritesPage() {
   //! Context
-  // Uso il context per ottenere la lista dei giochi e le funzioni per gestire i preferiti
+  // Prendo la lista dei videogiochi e le funzioni per gestire i preferiti dal context
   const { removeFromFavorites, favoritesGamesList, gamesList } =
     consumerGames();
 
@@ -15,7 +15,7 @@ export default function GamesFavoritesPage() {
 
   return (
     <>
-      <h1>Preferiti</h1>
+      <h1>Videogiochi preferiti</h1>
       <section className="games-favorites">
         <div className="favorites-container games-list">
           {favoriteGames.map((game) => (

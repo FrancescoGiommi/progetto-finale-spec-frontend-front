@@ -59,6 +59,7 @@ body {
 /* Bottone per ordine asc/desc */
 .sort-button {
   margin-left: 95px;
+  margin-bottom: 3rem;
 }
 
 /* Lista dei giochi */
@@ -135,6 +136,11 @@ body {
   background-color: #1a1a2e;
   color: #fff;
   border-radius: 8px;
+}
+
+.title-details-page {
+  font-size: 2rem;
+  margin: 3rem 1rem;
 }
 
 .game-details-info {

@@ -9,7 +9,7 @@ import CardGame from "../components/cardGame";
 
 export default function GamesComparatorPage() {
   //! Context
-  // Uso il contesto per ottenere la lista dei giochi
+  // Prendo la lista dei videogiochi dal context
   const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
 
   //! Stati
@@ -33,15 +33,15 @@ export default function GamesComparatorPage() {
 
   return (
     <>
-      <h1>Confronta i giochi</h1>
+      <h1>Confronta i videogiochi</h1>
       <p className="selected-games">
-        Seleziona fino a 2 giochi per confrontarli
+        Seleziona fino a 2 videogiochi per confrontarli
       </p>
       <p className="p-games-selected">
-        Giochi selezionati : {selectedGames.length}
+        Videogiochi selezionati : {selectedGames.length}
       </p>
       <section>
-        {/* Se ci sono giochi selezionati ne mostro i dettagli */}
+        {/* Se ci sono videogiochi selezionati ne mostro i dettagli */}
         {selectedGames.length > 0 && (
           <div className="comparator-container">
             {selectedGamesDetails.map((game) => (
@@ -93,7 +93,7 @@ export default function GamesComparatorPage() {
         )}
       </section>
       <div className="games-list">
-        {/* Lista dei giochi disponibili */}
+        {/* Lista dei videogiochi disponibili */}
         {gamesList.map((game) => (
           <div
             key={game.id}
@@ -102,6 +102,7 @@ export default function GamesComparatorPage() {
             }`}
             onClick={() => handleGameSelect(game.id)}
           >
+            {/* Card del videogioco */}
             <CardGame
               id={game.id}
               title={game.title}

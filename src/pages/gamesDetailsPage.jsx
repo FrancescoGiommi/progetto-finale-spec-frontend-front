@@ -5,19 +5,24 @@ import { useParams } from "react-router-dom";
 import { consumerGames } from "../globalContext/GamesContext";
 
 export default function GamesDetailsPage() {
-  // Ottengo l'id del gioco dalla URL tramite useParams
-  const id = useParams().id;
+  // Ottengo l'id del videogioco dalla URL tramite useParams
+  const { id } = useParams();
 
   //! Context
-  // Uso il context per ottenere la lista dei giochi
+  // Prendo la lista dei videogiochi dal context
   const { gamesList } = consumerGames();
 
-  // Uso il metodo find per trovare il gioco con l'id corrispondente
+  // Trovo il videogioco con l'id corrispondente
   const gameDetails = gamesList.find((game) => game.id === parseInt(id));
+
+  // Se non trovo il videogioco mostro un messaggio di errore
+  if (!gameDetails) {
+    return <p>Gioco non trovato o dati non disponibili.</p>;
+  }
 
   return (
     <>
-      <h1>Dettagli gioco</h1>
+      <h1 className="title-details-page">Dettagli videogioco</h1>
       <section className="game-details">
         <div className="game-details-container">
           {/* Immagine */}

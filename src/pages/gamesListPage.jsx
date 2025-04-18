@@ -11,11 +11,11 @@ import CardGame from "../components/cardGame";
 
 export default function GamesListPage() {
   //! Context
-  // Prendo la lista dei giochi e le funzioni per gestire i preferiti dal context
+  // Prendo la lista dei videogiochi e le funzioni per gestire i preferiti dal context
   const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
 
   //! Stati
-  // SearchBar per cercare i giochi
+  // SearchBar per cercare i videogiochi
   const [searchGame, setSearchGame] = useState("");
 
   // Select per selezionare la categoria
@@ -31,24 +31,24 @@ export default function GamesListPage() {
   const [sortByTitleOrCategory, setSortByTitleOrCategory] = useState("title");
 
   //! Funzioni
-  // Funzione per filtrare i giochi in base al titolo
+  // Filtra per titolo
   const filterByTitle = (game) => {
     return game.title.toLowerCase().includes(searchGame.toLowerCase());
   };
 
-  // Funzione per filtrare i giochi in base alla categoria
+  // Filtra per categoria
   const filterByCategory = (game) => {
     return (
       category === "" || game.category.toLowerCase() === category.toLowerCase()
     );
   };
 
-  // Funzione per filtrare i giochi sia per titolo che per categoria
+  // Filtra sia per titolo che per categoria
   const filterByTitleOrCategory = gamesList.filter((game) => {
     return filterByTitle(game) && filterByCategory(game);
   });
 
-  // Funzione per ordinare i giochi filtrati in ordine alfabetico, in base al titolo o categoria
+  // Ordina i videogiochi filtrati in ordine alfabetico, in base al titolo o categoria
   const sortGames = () => {
     return filterByTitleOrCategory.sort((a, b) => {
       if (sortOrder === "asc") {
@@ -60,7 +60,7 @@ export default function GamesListPage() {
     });
   };
 
-  // Lista finale dei giochi da mostrare, dopo filtraggio e ordinamento
+  // Lista finale dei videogiochi da mostrare, dopo filtraggio e ordinamento
   let gamesFiltered = sortGames();
 
   return (
@@ -73,7 +73,7 @@ export default function GamesListPage() {
           className="search-button"
           onClick={() => setShowSearchMenu(!showSearchMenu)}
         >
-          {showSearchMenu ? "Nascondi ricerca" : "Cerca un gioco"}
+          {showSearchMenu ? "Nascondi ricerca" : "Cerca un videogioco"}
         </button>
       </div>
       {showSearchMenu && (
@@ -83,10 +83,9 @@ export default function GamesListPage() {
             type="text"
             value={searchGame}
             onChange={(e) => setSearchGame(e.target.value)}
-            placeholder="Cerca un gioco..."
+            placeholder="Cerca un videogioco..."
           />
 
-          {/* Filtra gioco per categoria */}
           <h2>Filtra per categoria</h2>
           <div>
             {/* Select delle categorie */}
@@ -112,7 +111,7 @@ export default function GamesListPage() {
         </div>
       )}
       <div>
-        {/* Bottone per cambiare l'ordine alfabetico dei giochi (A → Z o Z → A) */}
+        {/* Bottone per cambiare l'ordine alfabetico dei videogiochi (A → Z o Z → A) */}
         <button
           className="sort-button"
           onClick={() =>
@@ -122,7 +121,7 @@ export default function GamesListPage() {
           Ordine: {sortOrder === "asc" ? "A → Z" : "Z → A"}
         </button>
 
-        {/* Bottone per ordinare i giochi per titolo o categoria */}
+        {/* Bottone per ordinare i videogiochi per titolo o categoria */}
         <button
           onClick={() =>
             setSortByTitleOrCategory((prev) =>
@@ -135,14 +134,14 @@ export default function GamesListPage() {
         </button>
 
         <div className="games-list">
-          {/* Lista dei giochi filtrati e ordinati */}
+          {/* Lista dei videogiochi filtrati e ordinati */}
           {gamesFiltered.map((game) => (
             <Link
               className="link"
               to={`/gamesDetails/${game.id}`}
               key={game.id}
             >
-              {/* Card del gioco */}
+              {/* Card del videogioco */}
               <CardGame
                 id={game.id}
                 title={game.title}
