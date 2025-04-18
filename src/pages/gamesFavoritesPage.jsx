@@ -15,7 +15,7 @@ export default function GamesFavoritesPage() {
 
   return (
     <>
-      <h1>Videogiochi preferiti</h1>
+      <h1 className="title-favorites-page">Lista preferiti</h1>
       <section className="games-favorites">
         <div className="favorites-container games-list">
           {favoriteGames.map((game) => (

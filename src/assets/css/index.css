@@ -283,6 +283,12 @@ button {
   margin-right: 25px;
 }
 
+/* Titolo dei preferiti */
+.title-favorites-page {
+  font-size: 2rem;
+  margin: 3rem 1rem;
+}
+
 /* Bottone per aggiungere i preferiti */
 .favorite-button {
   opacity: 0;
