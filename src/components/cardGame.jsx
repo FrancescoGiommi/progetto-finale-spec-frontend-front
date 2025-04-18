@@ -16,7 +16,6 @@ export default function CardGame({
         className={`favorite-button ${isFavorite ? "active" : ""}`}
         onClick={(e) => {
           e.stopPropagation();
-          e.preventDefault();
           addToFavorites(id);
         }}
       >

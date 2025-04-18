@@ -10,10 +10,13 @@ export default function GamesDetailsPage() {
 
   //! Context
   // Prendo la lista dei videogiochi dal context
-  const { gamesList } = consumerGames();
+  const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
 
   // Trovo il videogioco con l'id corrispondente
   const gameDetails = gamesList.find((game) => game.id === parseInt(id));
+
+  // Controllo se il videogioco è nei preferiti
+  const isFavorite = favoritesGamesList.includes(parseInt(id));
 
   // Se non trovo il videogioco mostro un messaggio di errore
   if (!gameDetails) {
@@ -35,6 +38,18 @@ export default function GamesDetailsPage() {
           <div className="game-details-info">
             {/* Titolo */}
             <h2 className="details-title">{gameDetails.title}</h2>
+
+            {/* Bottone per aggiungere il videogioco ai preferiti */}
+            <button
+              className={`favorite-button details-page ${
+                isFavorite ? "active" : ""
+              }`}
+              onClick={() => addToFavorites(parseInt(id))}
+            >
+              <i
+                className={`fa-solid fa-heart ${isFavorite ? "active" : ""}`}
+              ></i>
+            </button>
 
             <div className="details-row">
               <div className="details-item">

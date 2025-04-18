@@ -126,7 +126,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Pagina di detaglio del gioco */
+/* Pagina di dettaglio del gioco */
 .game-details-container {
   display: flex;
   justify-content: center;
@@ -184,7 +184,7 @@ body {
 .details-title {
   font-size: 1.5rem;
   color: #ffd700;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .details-row {
@@ -266,7 +266,7 @@ body {
   font-family: "Orbitron", sans-serif;
 }
 
-/* Tutti i bottoni */
+/* Bottone generico */
 button {
   background-color: #998100;
   color: white;
@@ -311,6 +311,40 @@ button {
 .favorite-button:hover {
   background-color: #0f3460;
   transform: scale(1.03);
+  color: red;
+}
+
+/* Bottone pagina di dettaglio */
+.favorite-button.details-page {
+  opacity: 1;
+  pointer-events: auto;
+  position: absolute;
+  top: 280px;
+  right: 600px;
+  background-color: #0f3460;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Il cuore all'interno: bianco di default */
+.favorite-button.details-page i.fa-heart {
+  color: white;
+}
+
+/* Al passaggio del mouse: cuore rosso */
+.favorite-button.details-page:hover i.fa-heart {
+  color: red;
+}
+
+/* Se è attivo (già nei preferiti): cuore rosso */
+.favorite-button.details-page.active i.fa-heart,
+.favorite-button.details-page i.fa-heart.active {
   color: red;
 }
 

@@ -34,7 +34,7 @@ export const useGames = () => {
       if (!isFavorite) {
         return [...prevFavorites, gameId];
       } else {
-        return prevFavorites.filter((id) => id !== gameId);
+        return prevFavorites;
       }
     });
   };
