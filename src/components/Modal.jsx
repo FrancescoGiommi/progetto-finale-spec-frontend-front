@@ -16,7 +16,7 @@ export default function Modal({ title, id, onClose }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <p>Sei sicuro di voler eliminare questo gioco dai preferiti ?</p>
+        <p>Sei sicuro di voler eliminare questo videogioco dai preferiti ?</p>
         <h2>{title}</h2>
         <div className="modal-buttons">
           <button className="confirm-button" onClick={confirmDelete}>
