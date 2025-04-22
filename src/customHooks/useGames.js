@@ -23,7 +23,7 @@ export const useGames = () => {
       }
       setGamesList(data);
     } catch (error) {
-      console.error("Errore durante il fetch dei giochi:", error.message);
+      console.error("Errore durante il fetch dei giochi:", error);
     }
   };
 
