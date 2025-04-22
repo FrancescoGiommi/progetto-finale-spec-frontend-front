@@ -17,13 +17,17 @@ export const useGames = () => {
   const gamesFetch = async () => {
     try {
       const response = await fetch(`${gamesUrl}/videogames`);
-      const data = await response.json();
+
       if (!response.ok) {
+        // Se la risposta arriva ma ha uno status di errore
         throw new Error("Errore nella risposta del server");
       }
+
+      const data = await response.json();
       setGamesList(data);
     } catch (error) {
-      console.error("Errore durante il fetch dei giochi:", error);
+      // Cattura sia errori di rete, sia l'errore lanciato sopra
+      console.error("Errore durante il recupero dei dati:", error.message);
     }
   };
 

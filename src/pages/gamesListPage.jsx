@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { consumerGames } from "../globalContext/GamesContext";
 
 // Import la card dei giochi
-import CardGame from "../components/cardGame";
+import CardGame from "../components/Cardgame";
 
 export default function GamesListPage() {
   //! Context
@@ -62,6 +62,10 @@ export default function GamesListPage() {
 
   // Lista finale dei videogiochi da mostrare, dopo filtraggio e ordinamento
   let gamesFiltered = sortGames();
+
+  const isFavorite = (gameId) => {
+    return favoritesGamesList.includes(gameId);
+  };
 
   return (
     <>
@@ -148,7 +152,7 @@ export default function GamesListPage() {
                 image={game.image}
                 category={game.category}
                 addToFavorites={addToFavorites}
-                isFavorite={favoritesGamesList.includes(game.id)}
+                isFavorite={isFavorite(game.id)}
               />
             </Link>
           ))}
