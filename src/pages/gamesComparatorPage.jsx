@@ -33,7 +33,7 @@ export default function GamesComparatorPage() {
 
   return (
     <>
-      <h1>Confronta i videogiochi</h1>
+      <h1 className="title-pages">Confronta i videogiochi</h1>
       <p className="selected-games">
         Seleziona fino a 2 videogiochi per confrontarli
       </p>

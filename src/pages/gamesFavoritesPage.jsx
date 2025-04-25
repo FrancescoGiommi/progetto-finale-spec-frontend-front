@@ -15,7 +15,10 @@ export default function GamesFavoritesPage() {
 
   return (
     <>
-      <h1 className="title-favorites-page">Lista preferiti</h1>
+      <h1 className="title-pages">Lista preferiti</h1>
+      <p className="p-favorites-page">
+        Per rimuovere un videogioco clicca sul bottone con il cestino
+      </p>
       <section className="games-favorites">
         <div className="favorites-container games-list">
           {favoriteGames.map((game) => (

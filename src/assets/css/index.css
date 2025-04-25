@@ -56,6 +56,20 @@ body {
   color: #00f0ff;
 }
 
+.title-container {
+  text-align: center;
+  margin: 3rem;
+}
+
+.title-page {
+  font-size: 35px;
+  color: #00f0ff;
+  margin-bottom: 1rem;
+}
+
+.subtitle-page {
+  font-size: 35px;
+}
 /* Bottone per ordine asc/desc */
 .sort-button {
   margin-left: 95px;
@@ -283,10 +297,14 @@ button {
   margin-right: 25px;
 }
 
-/* Titolo dei preferiti */
-.title-favorites-page {
+/* Titolo preferiti e comparatore */
+.title-pages {
   font-size: 2rem;
-  margin: 3rem 1rem;
+  margin-top: 3rem;
+}
+
+.p-favorites-page {
+  margin-bottom: 3rem;
 }
 
 /* Bottone per aggiungere i preferiti */

@@ -65,8 +65,16 @@ export default function GamesListPage() {
 
   return (
     <>
+      <div className="title-container">
+        <h1 className="title-page">Benveuto su GamesCompare</h1>
+        <h2> Esplora, Confronta e Scegli i Tuoi Videogiochi Preferiti!</h2>
+        <p>
+          Scopri la nostra collezione di giochi, confrontali tra loro e salva i
+          tuoi preferiti in un click.
+        </p>
+      </div>
       <div className="flex-button-container">
-        <h1>Lista videogiochi</h1>
+        <h2 className="subtitle-page">Lista videogiochi</h2>
 
         {/* Bottone per mostrare/nascondere la barra di ricerca e la select della categoria */}
         <button
