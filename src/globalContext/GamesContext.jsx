@@ -9,8 +9,13 @@ const GamesContext = createContext();
 
 // Esporto il provider per condividere il contesto
 export const GamesProvider = ({ children }) => {
-  const { gamesList, addToFavorites, favoritesGamesList, removeFromFavorites } =
-    useGames();
+  const {
+    gamesList,
+    addToFavorites,
+    favoritesGamesList,
+    removeFromFavorites,
+    isFavorite,
+  } = useGames();
 
   return (
     <GamesContext.Provider
@@ -19,6 +24,7 @@ export const GamesProvider = ({ children }) => {
         addToFavorites,
         favoritesGamesList,
         removeFromFavorites,
+        isFavorite,
       }}
     >
       {children}

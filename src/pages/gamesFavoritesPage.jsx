@@ -38,8 +38,6 @@ export default function GamesFavoritesPage() {
               </button>
             </div>
           ))}
-
-          {/* Se il gioco viene selezionato apro la modale */}
         </div>
       </section>
     </>

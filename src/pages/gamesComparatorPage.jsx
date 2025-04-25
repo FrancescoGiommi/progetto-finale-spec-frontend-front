@@ -5,12 +5,12 @@ import { useState } from "react";
 import { consumerGames } from "../globalContext/GamesContext";
 
 // Importo la card dei giochi
-import CardGame from "../components/cardGame";
+import CardGame from "../components/Cardgame";
 
 export default function GamesComparatorPage() {
   //! Context
   // Prendo la lista dei videogiochi dal context
-  const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
+  const { gamesList, addToFavorites, isFavorite } = consumerGames();
 
   //! Stati
   // Contiene gli ID dei giochi selezionati
@@ -109,7 +109,7 @@ export default function GamesComparatorPage() {
               image={game.image}
               category={game.category}
               addToFavorites={addToFavorites}
-              isFavorite={favoritesGamesList.includes(game.id)}
+              isFavorite={isFavorite(game.id)}
             />
           </div>
         ))}

@@ -12,7 +12,7 @@ import CardGame from "../components/Cardgame";
 export default function GamesListPage() {
   //! Context
   // Prendo la lista dei videogiochi e le funzioni per gestire i preferiti dal context
-  const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
+  const { gamesList, addToFavorites, isFavorite } = consumerGames();
 
   //! Stati
   // SearchBar per cercare i videogiochi
@@ -62,10 +62,6 @@ export default function GamesListPage() {
 
   // Lista finale dei videogiochi da mostrare, dopo filtraggio e ordinamento
   let gamesFiltered = sortGames();
-
-  const isFavorite = (gameId) => {
-    return favoritesGamesList.includes(gameId);
-  };
 
   return (
     <>
