@@ -55,8 +55,8 @@ export const useGames = () => {
   };
 
   // Funzione per controllare se un gioco è nei preferiti
-  const isFavorite = (gameId) => {
-    return favoritesGamesList.includes(gameId);
+  const isFavorite = (id) => {
+    return favoritesGamesList.includes(id);
   };
 
   // Uso useEffect per ottenere la lista al caricamento del componente
