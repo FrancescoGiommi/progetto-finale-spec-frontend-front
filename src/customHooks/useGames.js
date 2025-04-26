@@ -20,23 +20,25 @@ export const useGames = () => {
 
       if (!response.ok) {
         // Se la risposta arriva ma ha uno status di errore
-        throw new Error("Errore nella risposta del server");
+        throw new Error(
+          `Errore nella risposta del server, status ${response.status}`
+        );
       }
 
       const data = await response.json();
       setGamesList(data);
     } catch (error) {
       // Cattura sia errori di rete, sia l'errore lanciato sopra
-      console.error("Errore durante il recupero dei dati:", error);
+      console.error("Errore durante il recupero dei dati:", error.message);
     }
   };
 
   // Funzione per aggiungere un gioco ai preferiti
-  const addToFavorites = (gameId) => {
+  const addToFavorites = (id) => {
     setFavoritesGamesList((prevFavorites) => {
-      const isFavorite = prevFavorites.includes(gameId);
+      const isFavorite = prevFavorites.includes(id);
       if (!isFavorite) {
-        return [...prevFavorites, gameId];
+        return [...prevFavorites, id];
       } else {
         return prevFavorites;
       }

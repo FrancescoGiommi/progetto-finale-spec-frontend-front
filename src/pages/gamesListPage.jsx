@@ -69,8 +69,8 @@ export default function GamesListPage() {
         <h1 className="title-page">Benveuto su GamesCompare</h1>
         <h2> Esplora, Confronta e Scegli i Tuoi Videogiochi Preferiti!</h2>
         <p>
-          Scopri la nostra collezione di giochi, confrontali tra loro e salva i
-          tuoi preferiti in un click.
+          Scopri la nostra collezione di videogiochi, confrontali tra loro e
+          salva i tuoi preferiti in un click.
         </p>
       </div>
       <div className="flex-button-container">
