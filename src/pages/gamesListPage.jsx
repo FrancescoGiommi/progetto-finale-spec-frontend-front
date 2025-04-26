@@ -21,7 +21,7 @@ export default function GamesListPage() {
   // Select per selezionare la categoria
   const [category, setCategory] = useState("");
 
-  // Mostro/nascondo la barra di ricerca
+  // Mostro/nascondo la barra di ricerca e la select della categoria
   const [showSearchMenu, setShowSearchMenu] = useState(false);
 
   // Ordinamento alfabetico dei giochi
