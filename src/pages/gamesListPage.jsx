@@ -24,7 +24,7 @@ export default function GamesListPage() {
   // Mostro/nascondo la barra di ricerca e la select della categoria
   const [showSearchMenu, setShowSearchMenu] = useState(false);
 
-  // Ordinamento alfabetico dei giochi
+  // Ordinamento alfabetico dei videogiochi
   const [sortOrder, setSortOrder] = useState("asc");
 
   // Ordinamento per titolo o categoria
