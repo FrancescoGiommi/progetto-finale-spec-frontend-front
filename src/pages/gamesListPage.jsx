@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // Importo il context per i videogiochi
 import { consumerGames } from "../globalContext/GamesContext";
 
-// Import la card dei giochi
+// Import la card dei videogiochi
 import CardGame from "../components/CardGame";
 
 export default function GamesListPage() {
