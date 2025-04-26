@@ -13,11 +13,11 @@ export default function GamesComparatorPage() {
   const { gamesList, addToFavorites, isFavorite } = consumerGames();
 
   //! Stati
-  // Contiene gli ID dei giochi selezionati
+  // Contiene gli ID dei videogiochi selezionati
   const [selectedGames, setSelectedGames] = useState([]);
 
   //! Funzioni
-  // Funzione per gestire la selezione/deselezione di un gioco
+  // Funzione per gestire la selezione/deselezione di un videogioco
   const handleGameSelect = (id) => {
     if (selectedGames.includes(id)) {
       setSelectedGames(selectedGames.filter((gameId) => gameId !== id));
@@ -26,7 +26,7 @@ export default function GamesComparatorPage() {
     }
   };
 
-  // Restituisce i dettagli completi dei giochi selezionati
+  // Restituisce i dettagli completi dei videogiochi selezionati
   const selectedGamesDetails = gamesList.filter((game) =>
     selectedGames.includes(game.id)
   );
