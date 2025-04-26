@@ -5,7 +5,7 @@ import { useState } from "react";
 import { consumerGames } from "../globalContext/GamesContext";
 
 // Importo la card dei giochi
-import CardGame from "../components/Cardgame";
+import CardGame from "../components/CardGame";
 
 export default function GamesComparatorPage() {
   //! Context
