@@ -52,7 +52,7 @@ export const useGames = () => {
     }
   };
 
-  // Funzione per cambiare colore al bottone dei preferiti
+  // Funzione per fissare e cambiare colore al bottone dei preferiti
   const isFavorite = (id) => favoritesGamesList.includes(id);
 
   // Uso useEffect per ottenere la lista al caricamento del componente
