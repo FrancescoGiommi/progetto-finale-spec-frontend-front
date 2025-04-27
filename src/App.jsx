@@ -1,4 +1,4 @@
-/* importo il BrowserRouter e le Rotte per la navigazione */
+/* importo il BrowserRouter e le Routes */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 /* Componenti */

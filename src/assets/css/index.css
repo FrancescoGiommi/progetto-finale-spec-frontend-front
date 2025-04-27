@@ -146,6 +146,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
   padding: 2rem;
   background-color: #1a1a2e;
   color: #fff;
@@ -176,12 +178,6 @@ body {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   margin-top: 1rem;
-}
-
-.game-details-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
 }
 
 .game-image {
@@ -257,7 +253,7 @@ body {
 }
 
 .search-bar input::placeholder {
-  color: #aaa;
+  color: white;
 }
 
 /* Titolo del filtro */
@@ -323,7 +319,6 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: opacity 0.3s ease;
-  font-family: "Orbitron", sans-serif;
 }
 
 .favorite-button:hover {
@@ -347,7 +342,6 @@ button {
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
-  z-index: 10;
 }
 
 /* Il cuore all'interno: bianco di default */
@@ -370,10 +364,6 @@ button {
 .remove-favorite {
   padding: 0.75rem 1rem;
   border: none;
-  border-top-color: currentcolor;
-  border-right-color: currentcolor;
-  border-bottom-color: currentcolor;
-  border-left-color: currentcolor;
   font-weight: bold;
   border-radius: 12px;
   font-size: 1rem;

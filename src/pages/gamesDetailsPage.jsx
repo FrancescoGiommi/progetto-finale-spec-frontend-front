@@ -1,24 +1,24 @@
 /* Importo useParams */
 import { useParams } from "react-router-dom";
 
-// Importo il context per i videogiochi
+// Importo il context
 import { consumerGames } from "../globalContext/GamesContext";
 
 export default function GamesDetailsPage() {
-  // Ottengo l'id del videogioco dalla URL tramite useParams
+  // Ottengo l'id del gioco dalla URL tramite useParams
   const { id } = useParams();
 
   //! Context
-  // Prendo la lista dei videogiochi dal context
-  const { gamesList, addToFavorites, favoritesGamesList } = consumerGames();
+  // Prendo la lista dei giochi, lista dei preferiti e la funzione dal context
+  const { gamesList, addToFavorites, isFavorite } = consumerGames();
 
-  // Trovo il videogioco con l'id corrispondente
+  // Trovo il gioco con l'id corrispondente
   const gameDetails = gamesList.find((game) => game.id === parseInt(id));
 
-  // Controllo se il videogioco è nei preferiti
-  const isFavorite = favoritesGamesList.includes(parseInt(id));
+  // Trasformo l'id in numero intero
+  const favoriteGames = isFavorite(parseInt(id));
 
-  // Se non trovo il videogioco mostro un messaggio di errore
+  // Se non trovo il gioco mostro un messaggio di errore
   if (!gameDetails) {
     return <p>Gioco non trovato o dati non disponibili.</p>;
   }
@@ -39,15 +39,15 @@ export default function GamesDetailsPage() {
             {/* Titolo */}
             <h2 className="details-title">{gameDetails.title}</h2>
 
-            {/* Bottone per aggiungere il videogioco ai preferiti */}
+            {/* Bottone per aggiungere il gioco ai preferiti */}
             <button
               className={`favorite-button details-page ${
-                isFavorite ? "active" : ""
+                favoriteGames ? "active" : ""
               }`}
               onClick={() => addToFavorites(parseInt(id))}
             >
               <i
-                className={`fa-solid fa-heart ${isFavorite ? "active" : ""}`}
+                className={`fa-solid fa-heart ${favoriteGames ? "active" : ""}`}
               ></i>
             </button>
 

@@ -1,7 +1,7 @@
 // importo useState
 import { useState } from "react";
 
-// Importo il context per i videogiochi
+// Importo il context
 import { consumerGames } from "../globalContext/GamesContext";
 
 // Importo la card dei giochi
@@ -9,15 +9,15 @@ import CardGame from "../components/CardGame";
 
 export default function GamesComparatorPage() {
   //! Context
-  // Prendo la lista dei videogiochi dal context
+  // Prendo la lista dei giochi e le funzioni dal context
   const { gamesList, addToFavorites, isFavorite } = consumerGames();
 
   //! Stati
-  // Contiene gli ID dei videogiochi selezionati
+  // Contiene gli ID dei giochi selezionati
   const [selectedGames, setSelectedGames] = useState([]);
 
   //! Funzioni
-  // Funzione per gestire la selezione/deselezione di un videogioco
+  // Funzione per gestire la selezione/deselezione di un gioco
   const handleGameSelect = (id) => {
     if (selectedGames.includes(id)) {
       setSelectedGames(selectedGames.filter((gameId) => gameId !== id));
@@ -26,7 +26,7 @@ export default function GamesComparatorPage() {
     }
   };
 
-  // Restituisce i dettagli completi dei videogiochi selezionati
+  // Restituisce i dettagli completi dei giochi selezionati
   const selectedGamesDetails = gamesList.filter((game) =>
     selectedGames.includes(game.id)
   );
@@ -41,7 +41,7 @@ export default function GamesComparatorPage() {
         Videogiochi selezionati : {selectedGames.length}
       </p>
       <section>
-        {/* Se ci sono videogiochi selezionati ne mostro i dettagli */}
+        {/* Se ci sono giochi selezionati ne mostro i dettagli */}
         {selectedGames.length > 0 && (
           <div className="comparator-container">
             {selectedGamesDetails.map((game) => (
@@ -93,7 +93,7 @@ export default function GamesComparatorPage() {
         )}
       </section>
       <div className="games-list">
-        {/* Lista dei videogiochi disponibili */}
+        {/* Lista dei giochi disponibili */}
         {gamesList.map((game) => (
           <div
             key={game.id}
@@ -102,7 +102,7 @@ export default function GamesComparatorPage() {
             }`}
             onClick={() => handleGameSelect(game.id)}
           >
-            {/* Card del videogioco */}
+            {/* Card del gioco */}
             <CardGame
               id={game.id}
               title={game.title}

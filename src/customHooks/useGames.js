@@ -3,23 +3,22 @@ import { useEffect, useState } from "react";
 
 export const useGames = () => {
   //! Stati
-  /* Lista dei videogiochi */
+  /* Lista dei giochi */
   const [gamesList, setGamesList] = useState([]);
 
-  /* Lista dei videogiochi preferiti */
+  /* Lista dei giochi preferiti */
   const [favoritesGamesList, setFavoritesGamesList] = useState([]);
 
   //! URL del backend
   const gamesUrl = import.meta.env.VITE_BACKEND_URL;
 
   //! Funzioni
-  // Funzione per ottenere la lista dei videogiochi
+  // Funzione per ottenere la lista dei giochi
   const gamesFetch = async () => {
     try {
       const response = await fetch(`${gamesUrl}/videogames`);
 
       if (!response.ok) {
-        // Se la risposta arriva ma ha uno status di errore
         throw new Error(
           `Errore nella risposta del server, status ${response.status}`
         );
@@ -28,7 +27,6 @@ export const useGames = () => {
       const data = await response.json();
       setGamesList(data);
     } catch (error) {
-      // Cattura sia errori di rete, sia l'errore lanciato sopra
       console.error("Errore durante il recupero dei dati:", error.message);
     }
   };
@@ -55,9 +53,7 @@ export const useGames = () => {
   };
 
   // Funzione per controllare se un gioco è nei preferiti
-  const isFavorite = (id) => {
-    return favoritesGamesList.includes(id);
-  };
+  const isFavorite = (id) => favoritesGamesList.includes(id);
 
   // Uso useEffect per ottenere la lista al caricamento del componente
   useEffect(() => {
