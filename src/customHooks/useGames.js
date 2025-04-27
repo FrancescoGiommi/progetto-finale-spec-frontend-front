@@ -52,7 +52,7 @@ export const useGames = () => {
     }
   };
 
-  // Funzione per controllare se un gioco è nei preferiti
+  // Funzione per cambiare colore al bottone dei preferiti
   const isFavorite = (id) => favoritesGamesList.includes(id);
 
   // Uso useEffect per ottenere la lista al caricamento del componente
