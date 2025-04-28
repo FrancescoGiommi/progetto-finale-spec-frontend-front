@@ -13,7 +13,7 @@ export default function GamesComparatorPage() {
   const { gamesList, addToFavorites, isFavorite } = consumerGames();
 
   //! Stati
-  // Contiene gli ID dei giochi selezionati
+  // Contiene i giochi selezionati
   const [selectedGames, setSelectedGames] = useState([]);
 
   //! Funzioni
