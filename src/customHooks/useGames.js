@@ -31,6 +31,11 @@ export const useGames = () => {
     }
   };
 
+  // Uso useEffect per ottenere la lista al caricamento del componente
+  useEffect(() => {
+    gamesFetch();
+  }, []);
+
   // Funzione per aggiungere un gioco ai preferiti
   const addToFavorites = (id) => {
     setFavoritesGamesList((prevFavorites) => {
@@ -54,11 +59,6 @@ export const useGames = () => {
 
   // Funzione per fissare e cambiare colore al bottone dei preferiti
   const isFavorite = (id) => favoritesGamesList.includes(id);
-
-  // Uso useEffect per ottenere la lista al caricamento del componente
-  useEffect(() => {
-    gamesFetch();
-  }, []);
 
   return {
     gamesList,
