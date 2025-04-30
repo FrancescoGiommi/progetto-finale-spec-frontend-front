@@ -1,5 +1,5 @@
 // Importo useState
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 // Importo Link
 import { Link } from "react-router-dom";
@@ -9,6 +9,16 @@ import { consumerGames } from "../globalContext/GamesContext";
 
 // Importo la card dei giochi
 import CardGame from "../components/CardGame";
+
+function debounce(callback, delay) {
+  let timer;
+  return (value) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback(value);
+    }, delay);
+  };
+}
 
 export default function GamesListPage() {
   //! Context
@@ -32,6 +42,15 @@ export default function GamesListPage() {
   const [sortByTitleOrCategory, setSortByTitleOrCategory] = useState("title");
 
   //! Funzioni
+
+  // Debounce per la barra di ricerca
+  const debounceSearch = useCallback(
+    debounce((value) => {
+      setSearchGame(value);
+    }, 500),
+    []
+  );
+
   // Filtra per titolo
   const filterByTitle = (game) => {
     return game.title.toLowerCase().includes(searchGame.toLowerCase());
@@ -91,8 +110,7 @@ export default function GamesListPage() {
           {/* Barra di ricerca per titolo */}
           <input
             type="text"
-            value={searchGame}
-            onChange={(e) => setSearchGame(e.target.value)}
+            onChange={(e) => debounceSearch(e.target.value)}
             placeholder="Cerca un videogioco..."
           />
 
