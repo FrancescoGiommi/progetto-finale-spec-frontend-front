@@ -7,7 +7,22 @@ export const useGames = () => {
   const [gamesList, setGamesList] = useState([]);
 
   /* Lista dei giochi preferiti */
-  const [favoritesGamesList, setFavoritesGamesList] = useState([]);
+  const [favoritesGamesList, setFavoritesGamesList] = useState(() => {
+    const storedFavorites = localStorage.getItem("favoritesGamesList");
+
+    if (storedFavorites) {
+      return JSON.parse(storedFavorites);
+    }
+
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      "favoritesGamesList",
+      JSON.stringify(favoritesGamesList)
+    );
+  }, [favoritesGamesList]);
 
   //! URL del backend
   const gamesUrl = import.meta.env.VITE_BACKEND_URL;
