@@ -1,5 +1,5 @@
 // importo useState
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 // Importo il context
 import { consumerGames } from "../globalContext/GamesContext";
@@ -27,9 +27,9 @@ export default function GamesComparatorPage() {
   };
 
   // Restituisce i dettagli completi dei giochi selezionati
-  const selectedGamesDetails = gamesList.filter((game) =>
-    selectedGames.includes(game.id)
-  );
+  const selectedGamesDetails = useMemo(() => {
+    return gamesList.filter((game) => selectedGames.includes(game.id));
+  }, [gamesList, selectedGames]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 // Importo useState
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 
 // Importo Link
 import { Link } from "react-router-dom";
@@ -64,13 +64,17 @@ export default function GamesListPage() {
   };
 
   // Filtra i giochi per titolo e categoria
-  const filterByTitleOrCategory = gamesList.filter((game) => {
-    return filterByTitle(game) && filterByCategory(game);
-  });
+  const filterByTitleOrCategory = useMemo(() => {
+    return gamesList.filter((game) => {
+      return filterByTitle(game) && filterByCategory(game);
+    });
+  }, [gamesList, searchGame, category]);
 
   // Ordina i giochi filtrati in ordine alfabetico
-  const sortGames = () => {
-    return filterByTitleOrCategory.sort((a, b) => {
+
+  // Lista finale dei giochi
+  let gamesFiltered = useMemo(() => {
+    return [...filterByTitleOrCategory].sort((a, b) => {
       if (sortOrder === "asc") {
         return a[sortByTitleOrCategory].localeCompare(b[sortByTitleOrCategory]);
       } else if (sortOrder === "desc") {
@@ -78,10 +82,7 @@ export default function GamesListPage() {
       }
       return 0;
     });
-  };
-
-  // Lista finale dei giochi
-  let gamesFiltered = sortGames();
+  }, [filterByTitleOrCategory, sortOrder, sortByTitleOrCategory]);
 
   return (
     <>
