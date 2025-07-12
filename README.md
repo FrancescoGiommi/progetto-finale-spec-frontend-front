@@ -1,12 +1,25 @@
-# React + Vite
+🎮 GamesCompare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GamesCompare è un’applicazione web sviluppata come progetto finale del corso Boolean.
+Permette di:
 
-Currently, two official plugins are available:
+   - Esplorare un catalogo di videogiochi,
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   - Filtrare i titoli per categoria,
 
-## Expanding the ESLint configuration
+   - Cercare i giochi per nome,
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   - Ordinarli alfabeticamente,
+
+   - Confrontare visivamente fino a due videogiochi alla volta, visualizzandone tutte le caratteristiche,
+
+   - Aggiungere i propri giochi preferiti in una lista dedicata, consultabile in qualsiasi momento.
+
+Ogni gioco dispone di una scheda dettagliata con informazioni come categoria, piattaforma, anno di uscita, sviluppatore, prezzo e descrizione.
+
+Il progetto è stato realizzato con un’architettura full-stack:
+
+   - Frontend sviluppato in React, con componenti modulari e gestione dello stato tramite Context API.
+
+   - Backend basato su Express, che fornisce le API per recuperare la lista dei videogiochi.
+
